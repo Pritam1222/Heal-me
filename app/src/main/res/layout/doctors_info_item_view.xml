@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="7.5dp"
+        android:layout_marginBottom="7.5dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="30dp"
+        android:background="@drawable/card_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_image"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_doctors_info_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr. Anna baker"
+                android:textSize="18sp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="17dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_doctors_info_speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="9dp"
+                android:text="Heart surgeon"
+                android:textSize="15sp"
+                android:textColor="#C4C4C4"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_name"/>
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_doctors_info_location"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toEndOf="@id/tv_doctors_info_speciality"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/doctors_info_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="680 m"
+                android:textSize="14sp"
+                android:textColor="#089BAB"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="47dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_location"
+                app:layout_constraintTop_toTopOf="parent"/>
+            
+            <ImageView
+                android:id="@+id/iv_doctors_info_rating_star_1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_rating_star"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_rating_star_2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_rating_star"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_rating_star_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_rating_star_3"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_rating_star"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_rating_star_2"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_rating_star_4"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_rating_star"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_rating_star_3"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <ImageView
+                android:id="@+id/iv_doctors_info_rating_star_5"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_rating_star"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_rating_star_4"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <TextView
+                android:id="@+id/tv_doctors_info_ratings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="10dp"
+                android:text="4.5"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#C4C4C4"
+                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_rating_star_5"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <TextView
+                android:id="@+id/doctors_info_rating_reviews_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=" | "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#C4C4C4"
+                app:layout_constraintStart_toEndOf="@id/tv_doctors_info_ratings"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <TextView
+                android:id="@+id/tv_doctors_info_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="120"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#C4C4C4"
+                app:layout_constraintStart_toEndOf="@id/doctors_info_rating_reviews_divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=" Reviews"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#C4C4C4"
+                app:layout_constraintStart_toEndOf="@id/tv_doctors_info_reviews"
+                app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

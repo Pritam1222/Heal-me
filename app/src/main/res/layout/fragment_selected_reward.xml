@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SelectedRewardFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/selected_reward_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Rewards"
+        app:titleTextColor="@color/white"
+        android:backgroundTint="#089BAB"
+        app:titleMarginStart="170dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selected_reward_toolbar"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginStart="26dp"
+        android:background="@drawable/selected_reward_rectangle">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/puma_logo"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="- - - - - - - - - - - - - - - - - - - - - -"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="80dp"
+            android:src="@drawable/selected_reward_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="80dp"
+            android:rotation="180"
+            android:src="@drawable/selected_reward_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/reward_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Puma"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="154dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reward_brand_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="50% off coupon"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reward_brand_name" />
+
+        <TextView
+            android:id="@+id/reward_brand_order"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="on your first order"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reward_brand_discount" />
+
+        <TextView
+            android:id="@+id/reward_expires"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Expires"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/reward_brand_order" />
+
+        <TextView
+            android:id="@+id/reward_expires_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="14 Nov 2023"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reward_expires" />
+
+        <TextView
+            android:id="@+id/reward_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Coupon Code"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/reward_expires_date" />
+
+
+        <TextView
+            android:id="@+id/reward_coupon_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="McDolnald12d4"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reward_coupon" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bu_reward_redeem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toBottomOf="@id/reward_coupon_code"
+            android:text="Redeem coupon"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/upload_button_background"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:backgroundTint="#41C9A3"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bu_reward_redeem">
+
+
+            <TextView
+                android:id="@+id/reward_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Terms and Conditions*"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="44dp"
+                app:layout_constraintTop_toBottomOf="@+id/reward_redeem"
+                />
+
+            <TextView
+                android:id="@+id/reward_terms_cond1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1. You can use the benefits of this coupon only once."
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reward_terms"
+                />
+
+            <TextView
+                android:id="@+id/reward_terms_cond2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2. You can use the benefits of this coupon only once."
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reward_terms_cond1"
+                />
+
+
+            <TextView
+                android:id="@+id/reward_terms_cond3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="3. You can use the benefits of this coupon only once."
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reward_terms_cond1"
+                />
+
+
+            <TextView
+                android:id="@+id/reward_terms_cond4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="4. You can use the benefits of this coupon only once."
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reward_terms_cond1"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

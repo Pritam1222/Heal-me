@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home_control_graph"
+    app:startDestination="@id/homeFragment2">
+
+
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.heal_me.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_doctorsFragment"
+            app:destination="@id/doctorsFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_symptomsFragment"
+            app:destination="@id/symptomsFragment"/>
+        <action
+            android:id="@+id/action_homeFragment2_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_walletFragment"
+            app:destination="@id/walletFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentFragment"
+        android:name="com.example.heal_me.fragments.AppointmentFragment"
+        android:label="fragment_appointment"
+        tools:layout="@layout/fragment_appointment" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.heal_me.fragments.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.heal_me.fragments.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_uploadPreviewFragment"
+            app:destination="@id/uploadPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorsFragment"
+        android:name="com.example.heal_me.fragments.DoctorsFragment"
+        android:label="fragment_doctors"
+        tools:layout="@layout/fragment_doctors" />
+    <fragment
+        android:id="@+id/symptomsFragment"
+        android:name="com.example.heal_me.fragments.SymptomsFragment"
+        android:label="fragment_symptoms"
+        tools:layout="@layout/fragment_symptoms" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.heal_me.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_termsConditionsFragment2"
+            app:destination="@id/termsConditionsFragment2" />
+        <action
+            android:id="@+id/action_settingFragment_to_referFragment"
+            app:destination="@id/referFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_logoutDialogFragment"
+            app:destination="@id/logoutDialogFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_selectedRewardFragment"
+            app:destination="@id/selectedRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.example.heal_me.fragments.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <fragment
+        android:id="@+id/termsConditionsFragment2"
+        android:name="com.example.heal_me.fragments.TermsConditionsFragment"
+        android:label="fragment_terms_conditions"
+        tools:layout="@layout/fragment_terms_conditions" />
+    <fragment
+        android:id="@+id/referFragment"
+        android:name="com.example.heal_me.fragments.ReferFragment"
+        android:label="fragment_refer"
+        tools:layout="@layout/fragment_refer" />
+    <dialog
+        android:id="@+id/logoutDialogFragment"
+        android:name="com.example.heal_me.fragments.LogoutDialogFragment"
+        android:label="fragment_logout_dialog"
+        tools:layout="@layout/fragment_logout_dialog" />
+    <fragment
+        android:id="@+id/selectedRewardFragment"
+        android:name="com.example.heal_me.fragments.SelectedRewardFragment"
+        android:label="fragment_selected_reward"
+        tools:layout="@layout/fragment_selected_reward" />
+    <fragment
+        android:id="@+id/uploadPreviewFragment"
+        android:name="com.example.heal_me.fragments.UploadPreviewFragment"
+        android:label="fragment_upload_preview"
+        tools:layout="@layout/fragment_upload_preview" >
+        <action
+            android:id="@+id/action_uploadPreviewFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment"
+            app:popUpTo="@id/uploadPreviewFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

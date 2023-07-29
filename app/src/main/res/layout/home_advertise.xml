@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="40dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#089BAB"
+    android:background="@drawable/card_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ad_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/doctor_pointing"
+                android:layout_marginEnd="50dp"
+                />
+
+            <TextView
+                android:id="@+id/ad_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Covid 19"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="40dp"
+                />
+
+            <TextView
+                android:id="@+id/ad_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protect your self and your family from\ncovid 19"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/ad_text_1"
+                />
+
+        </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

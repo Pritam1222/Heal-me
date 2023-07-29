@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login_graph"
+    app:startDestination="@id/phoneNoFragment">
+
+    <fragment
+        android:id="@+id/phoneNoFragment"
+        android:name="com.example.heal_me.fragments.PhoneNoFragment"
+        android:label="fragment_phone_no"
+        tools:layout="@layout/fragment_phone_no" >
+        <action
+            android:id="@+id/action_phoneNoFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+        <action
+            android:id="@+id/action_phoneNoFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.example.heal_me.fragments.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otpFragment_to_infoNameFragment"
+            app:destination="@id/infoNameFragment"
+            app:popUpTo="@id/phoneNoFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otpFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoNameFragment"
+        android:name="com.example.heal_me.fragments.InfoNameFragment"
+        android:label="fragment_info_name"
+        tools:layout="@layout/fragment_info_name" >
+        <action
+            android:id="@+id/action_infoNameFragment_to_infoEmailFragment"
+            app:destination="@id/infoEmailFragment" />
+        <action
+            android:id="@+id/action_infoNameFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoEmailFragment"
+        android:name="com.example.heal_me.fragments.InfoEmailFragment"
+        android:label="fragment_info_email"
+        tools:layout="@layout/fragment_info_email" >
+        <action
+            android:id="@+id/action_infoEmailFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsConditionsFragment"
+        android:name="com.example.heal_me.fragments.TermsConditionsFragment"
+        android:label="fragment_terms_conditions"
+        tools:layout="@layout/fragment_terms_conditions" />
+</navigation>

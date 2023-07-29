@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".fragments.InfoNameFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="#ffff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HEAL-ME"
+            android:textAlignment="center"
+            android:textColor="#089BAB"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <DatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="calendar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="27dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:text="Complete health solutions"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Find the best doctor and medicine\nfor you."
+            android:textAlignment="center"
+            android:textColor="#B3B9BA"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="60dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/full_name"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                android:hint="Enter your full name"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="22dp"
+                android:clickable="false"
+                android:backgroundTintMode="add"
+                android:src="@drawable/shield_done" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:text="Full Name"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/tvDate"
+                android:editable="false"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                android:hint="Select your DOB"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageButton
+                android:id="@+id/select_date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:text="Date Of Birth"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nameDob"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button"
+            android:text="next"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/layout_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/conditionText"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/indicator_active" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/indicator_active" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/indicator_inactive" />
+
+    </LinearLayout>
+
+<TextView
+    android:id="@+id/conditionText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:text="By creating an account, you accept Heal-me"
+    android:textSize="13sp"
+    app:layout_constraintBottom_toTopOf="@id/terms_conditions"/>
+
+<TextView
+    android:id="@+id/terms_conditions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:text="Terms of service"
+    android:textSize="13sp"
+    android:paddingBottom="30dp"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

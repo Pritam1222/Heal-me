@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment2"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/appointmentFragment"
+        android:icon="@drawable/calendar"
+        android:title="Appointment" />
+    <item
+        android:id="@+id/uploadFragment"
+        android:icon="@drawable/document"
+        android:tooltipText="ac"
+        android:title="Upload" />
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/profile"
+        android:title="Account" />
+
+</menu>
