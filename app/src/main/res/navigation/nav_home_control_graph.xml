@@ -28,7 +28,11 @@
         android:id="@+id/appointmentFragment"
         android:name="com.example.heal_me.fragments.AppointmentFragment"
         android:label="fragment_appointment"
-        tools:layout="@layout/fragment_appointment" />
+        tools:layout="@layout/fragment_appointment" >
+        <action
+            android:id="@+id/action_appointmentFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.heal_me.fragments.AccountFragment"
@@ -68,8 +72,17 @@
             android:id="@+id/action_settingFragment_to_logoutDialogFragment"
             app:destination="@id/logoutDialogFragment" />
         <action
-            android:id="@+id/action_settingFragment_to_selectedRewardFragment"
-            app:destination="@id/selectedRewardFragment" />
+            android:id="@+id/action_settingFragment_to_updateAppFragment"
+            app:destination="@id/updateAppFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_helpSupportFragment"
+            app:destination="@id/helpSupportFragment" />
     </fragment>
     <fragment
         android:id="@+id/walletFragment"
@@ -107,4 +120,28 @@
             app:popUpTo="@id/uploadPreviewFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/updateAppFragment"
+        android:name="com.example.heal_me.fragments.UpdateAppFragment"
+        android:label="fragment_update_app"
+        tools:layout="@layout/fragment_update_app" />
+    <fragment
+        android:id="@+id/rewardsFragment"
+        android:name="com.example.heal_me.fragments.RewardsFragment"
+        android:label="fragment_rewards"
+        tools:layout="@layout/fragment_rewards" >
+        <action
+            android:id="@+id/action_rewardsFragment_to_selectedRewardFragment"
+            app:destination="@id/selectedRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.example.heal_me.fragments.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/helpSupportFragment"
+        android:name="com.example.heal_me.fragments.HelpSupportFragment"
+        android:label="fragment_help_support"
+        tools:layout="@layout/fragment_help_support" />
 </navigation>

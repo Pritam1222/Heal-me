@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.example.heal_me.R
 import com.example.heal_me.adapters.AppointmentViewPagerAdapter
 import com.example.heal_me.databinding.FragmentAppointmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -22,6 +24,12 @@ class AppointmentFragment : Fragment() {
     ): View? {
         fragmentAppointmentBinding = FragmentAppointmentBinding.inflate(layoutInflater)
         setUpTabLayoutWithViewPager()
+
+        fragmentAppointmentBinding.setting.setOnClickListener {
+            it.findNavController().navigate(R.id.action_appointmentFragment_to_settingFragment)
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+        }
+
         return fragmentAppointmentBinding.root
 
     }

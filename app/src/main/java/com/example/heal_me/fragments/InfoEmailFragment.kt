@@ -55,7 +55,11 @@ class InfoEmailFragment : Fragment() {
                 selected = which
             }
             builder.setPositiveButton("ok") { _, _ ->
-                genderText.setText(genders[selected])
+                if (selected != -1 && selected < genders.size) {
+                    genderText.setText(genders[selected])
+                } else {
+                    Toast.makeText(requireContext(), "Please select Gender", Toast.LENGTH_SHORT).show()
+                }
             }
             builder.setNegativeButton("Cancel"){dialog, _ ->
                 dialog.dismiss()

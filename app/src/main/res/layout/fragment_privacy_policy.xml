@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PrivacyPolicyFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_privacy_policy"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:backgroundTint="#089BAB"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginEnd="70dp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar_privacy_policy"
+        >
+
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="viewStart"
+                    android:text="This Privacy Policy (“Privacy Policy”) describes what information Axelia Solutions Private Limited (“Company”), as the operator of the Platform and Threpsi Solutions Private Limited, as owner of the Platform, may collect from a user (“You”, “Your” or “User”), on or through Our website (https://xyz.in/) (the “Site”) or one or more mobile application (the “App”), directly (the owner and the operator of the Platform are referred collectively as “We”/ “Us”/ ”Our”) or in relation to services otherwise rendered by Us (collectively “Platform”), including Our facilitation through the Platform, of purchase of pharmaceutical drugs from Retail Pharmacies, consultation with registered medical practitioners or facilitation of consultation with registered medical practitioners by third-parties (“Medical Practitioners”) and the facilitation of services by third parties which may include delivery of pharmaceutical, nutraceutical, over the counter products and such other products as ordered by You through the App or the Site, and scheduling diagnostic tests (each a “Service”, and collectively the “Services”) and how We use, process, disclose and try to protect such information.
+
+\nYou agree and understand that the Company is responsible for operation and maintenance of the Platform and all information collected and processed on the Platform is collected and processed by Us strictly in relation to Our business.
+
+\nBy clicking on 'Continue' during the sign-up process, by using Our Platform, or by using the Services, You confirm that You have read, understood, and agree with the privacy practices described in this Privacy Policy, and the Terms of Use (the “Terms”) and the collection, storage and processing of Your information in accordance with them.
+
+\nThis Privacy Policy is incorporated by reference into the Terms. Any capitalized terms used but not defined in this Privacy Policy have the meaning given to them in the Terms."
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="24sp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    android:text="General Terms"
+                    android:textStyle="bold"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingStart="10dp"
+                        android:textAlignment="viewStart"
+                        android:text="a."
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="viewStart"
+                        android:text="By accessing or using the Platform or the Service, or by otherwise giving Us Your information, You confirm that You have the capacity to enter into a legally binding contract under Indian law, in particular, the Indian Contract Act, 1872, and have read, understood and agreed to the practices and policies outlined in this Privacy Policy and agree to be bound by the Privacy Policy."
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingStart="10dp"
+                        android:textAlignment="viewStart"
+                        android:text="b."
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="viewStart"
+                        android:text="You hereby consent to Our collection, use, sharing, and disclosure of Your information as described in this Privacy Policy. We reserve the right to change, modify, add or delete portions of the terms of this Privacy Policy, at Our sole discretion, at any time, and any continued use of the App, the Services or the Platform, following any such amendments to the Privacy Policy, will be deemed as an implicit acceptance of the Privacy Policy in its amended form. You are requested to review the Privacy Policy from time to time to keep yourself updated with any changes; modifications made to the terms hereof."
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingStart="10dp"
+                        android:textAlignment="viewStart"
+                        android:text="c."
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="viewStart"
+                        android:text="If You are accessing or using Services on the App or the Site from an overseas location, You do so at Your own risk, and shall be solely liable for compliance with any applicable local laws."
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingStart="10dp"
+                        android:textAlignment="viewStart"
+                        android:text="d."
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="viewStart"
+                        android:text="If You do not agree with any of the terms and conditions of this Privacy Policy, please do not proceed further to use this Site or the App or any Services. This Privacy Policy is subject to change at any time without notice. To make sure You are aware of any changes, please review this policy on this Site or the App periodically."
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

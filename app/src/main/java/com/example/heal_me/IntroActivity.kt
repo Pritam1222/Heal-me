@@ -58,6 +58,7 @@ class IntroActivity : AppCompatActivity() {
         )
 
         setContentView(R.layout.app_intro)
+
         val introSliderViewPager = findViewById<ViewPager2>(R.id.introSliderViewPager)
         introSliderViewPager.adapter = introSlideAdapter
         setupIndicators()
@@ -83,10 +84,16 @@ class IntroActivity : AppCompatActivity() {
             }
         }
         textSkipIntro.setOnClickListener {
-            Intent(applicationContext, LoginActivity::class.java).also {
+//            Intent(applicationContext, LoginActivity::class.java).also {
+//                startActivity(it)
+//                finish()
+//            }
+
+            Intent(applicationContext, HomeNavControl::class.java).also {
                 startActivity(it)
                 finish()
             }
+
         }
 
     }

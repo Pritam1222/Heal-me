@@ -14,13 +14,20 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Rewards"
-        app:titleTextColor="@color/white"
         android:backgroundTint="#089BAB"
-        app:titleMarginStart="170dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rewards"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="70dp"
+            android:gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,13 +42,17 @@
 
 
         <ImageView
+            android:id="@+id/iv_selected_reward"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/puma_logo"
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:clipToOutline="true"
+            android:background="@drawable/circular_background"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:layout_width="match_parent"
@@ -72,10 +83,10 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-            android:id="@+id/reward_brand_name"
+            android:id="@+id/tv_reward_offer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Puma"
+            android:text="Puma\n50% off coupon"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -84,19 +95,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/reward_brand_discount"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="50% off coupon"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reward_brand_name" />
 
         <TextView
             android:id="@+id/reward_brand_order"
@@ -108,7 +106,7 @@
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reward_brand_discount" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_reward_offer" />
 
         <TextView
             android:id="@+id/reward_expires"

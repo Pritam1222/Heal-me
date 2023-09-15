@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.heal_me.databinding.HomeNavControlBinding
+import androidx.lifecycle.ViewModel
 
 class HomeNavControl : AppCompatActivity() {
 
@@ -33,4 +34,8 @@ class HomeNavControl : AppCompatActivity() {
             }
         }
     }
+}
+
+class SharedViewModel : ViewModel() {
+    var imageUri: String? = null
 }
