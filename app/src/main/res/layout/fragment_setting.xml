@@ -188,6 +188,7 @@
 <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settings_my_appointment"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:paddingStart="30dp"
@@ -225,6 +226,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settings_favourite_doctors"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:paddingStart="30dp"

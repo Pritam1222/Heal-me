@@ -84,15 +84,15 @@ class IntroActivity : AppCompatActivity() {
             }
         }
         textSkipIntro.setOnClickListener {
-//            Intent(applicationContext, LoginActivity::class.java).also {
-//                startActivity(it)
-//                finish()
-//            }
-
-            Intent(applicationContext, HomeNavControl::class.java).also {
+            Intent(applicationContext, LoginActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
+
+//            Intent(applicationContext, HomeNavControl::class.java).also {
+//                startActivity(it)
+//                finish()
+//            }
 
         }
 

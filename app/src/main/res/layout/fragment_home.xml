@@ -169,6 +169,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_doc_specialty_1"
                             android:layout_width="wrap_content"
                             android:layout_height="45dp"
                             app:cardElevation="5dp"
@@ -184,13 +185,36 @@
                                 android:layout_gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <ImageView
+                                <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingStart="20dp"
-                                    android:src="@drawable/heart"/>
+                                    android:layout_marginStart="10dp">
+
+                                    <ImageView
+                                        android:id="@+id/iv_background_doc_specialty_1"
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/ellipse"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:tint="#089BAB"
+                                        android:alpha="0.12" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/heart"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <TextView
+                                    android:id="@+id/tv_doc_specialty_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Heart surgeon"
@@ -202,6 +226,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_doc_specialty_2"
                             android:layout_width="wrap_content"
                             android:layout_height="45dp"
                             app:cardElevation="5dp"
@@ -217,13 +242,36 @@
                                 android:layout_gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <ImageView
+                                <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingStart="20dp"
-                                    android:src="@drawable/capsule"/>
+                                    android:layout_marginStart="10dp">
+
+                                    <ImageView
+                                        android:id="@+id/iv_background_doc_specialty_2"
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/ellipse"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:tint="#089BAB"
+                                        android:alpha="0.12" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/capsule"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <TextView
+                                    android:id="@+id/tv_doc_specialty_2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Psychologist"
@@ -235,6 +283,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_doc_specialty_3"
                             android:layout_width="wrap_content"
                             android:layout_height="45dp"
                             app:cardElevation="5dp"
@@ -251,13 +300,36 @@
                                 android:layout_gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <ImageView
+                                <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingStart="20dp"
-                                    android:src="@drawable/teeth"/>
+                                    android:layout_marginStart="10dp">
+
+                                    <ImageView
+                                        android:id="@+id/iv_background_doc_specialty_3"
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/ellipse"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:tint="#089BAB"
+                                        android:alpha="0.12" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/teeth"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <TextView
+                                    android:id="@+id/tv_doc_specialty_3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Dentist"

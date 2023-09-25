@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.heal_me.R
 import com.example.heal_me.data.CompletedAppointmentDataItem
-import com.example.heal_me.data.UpcomingAppointmentDataItem
 import com.example.heal_me.databinding.CompletedAppointmentItemViewBinding
-import com.example.heal_me.databinding.UpcomingAppointmentItemViewBinding
 
 class CompletedAppointmentAdapter : ListAdapter<CompletedAppointmentDataItem, CompletedAppointmentAdapter.CompletedAppointmentViewHolder>(CompletedAppointmentAdapter.DATA_COMPARATOR){
 
@@ -41,72 +39,25 @@ class CompletedAppointmentAdapter : ListAdapter<CompletedAppointmentDataItem, Co
             completedAppointmentItemViewBinding.completedAppointmentTimeFrom.text = completedAppointmentDataItem.completedAppointmentTimeFrom
             completedAppointmentItemViewBinding.completedAppointmentTimeTo.text = completedAppointmentDataItem.completedAppointmentTimeTo
 
-            completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setOnClickListener {
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
+            val starImageViews = listOf(
+                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1,
+                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2,
+                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3,
+                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4,
+                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5
+            )
 
+            starImageViews.forEachIndexed { index, starImageView ->
+                starImageView.setOnClickListener {
+                    for (i in starImageViews.indices) {
+                        if (i <= index) {
+                            starImageViews[i].setImageResource(R.drawable.ic_rating_star)
+                        } else {
+                            starImageViews[i].setImageResource(R.drawable.ic_rating_unselected_star)
+                        }
+                    }
+                }
             }
-
-            completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setOnClickListener {
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-            }
-
-            completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setOnClickListener {
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-            }
-
-            completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setOnClickListener {
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setImageResource(
-                    R.drawable.ic_rating_unselected_star)
-            }
-
-            completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setOnClickListener {
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar1.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar2.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar3.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar4.setImageResource(
-                    R.drawable.ic_rating_star)
-                completedAppointmentItemViewBinding.ivCompletedAppointmentRatingStar5.setImageResource(
-                    R.drawable.ic_rating_star)
-            }
-
         }
     }
 

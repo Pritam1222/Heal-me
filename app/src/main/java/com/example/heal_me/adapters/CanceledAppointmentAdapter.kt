@@ -6,22 +6,22 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.heal_me.data.CanceledAppointmentDataItem
+import com.example.heal_me.data.Appointment
 import com.example.heal_me.databinding.CanceledAppointmentItemViewBinding
 
 
-class CanceledAppointmentAdapter : ListAdapter<CanceledAppointmentDataItem, CanceledAppointmentAdapter.CanceledAppointmentInfoViewHolder>(CanceledAppointmentAdapter.DATA_COMPARATOR){
+class CanceledAppointmentAdapter : ListAdapter<Appointment, CanceledAppointmentAdapter.CanceledAppointmentInfoViewHolder>(CanceledAppointmentAdapter.DATA_COMPARATOR){
 
     private companion object {
-        private val DATA_COMPARATOR = object : DiffUtil.ItemCallback<CanceledAppointmentDataItem>() {
+        private val DATA_COMPARATOR = object : DiffUtil.ItemCallback<Appointment>() {
             override fun areItemsTheSame(
-                oldItem: CanceledAppointmentDataItem,
-                newItem: CanceledAppointmentDataItem
-            ): Boolean = oldItem.canceledAppointmentDoctorImage == newItem.canceledAppointmentDoctorImage
+                oldItem: Appointment,
+                newItem: Appointment
+            ): Boolean = oldItem.doctorName == newItem.doctorName
 
             override fun areContentsTheSame(
-                oldItem: CanceledAppointmentDataItem,
-                newItem: CanceledAppointmentDataItem
+                oldItem: Appointment,
+                newItem: Appointment
             ): Boolean = oldItem == newItem
 
         }
@@ -29,16 +29,16 @@ class CanceledAppointmentAdapter : ListAdapter<CanceledAppointmentDataItem, Canc
 
 
     class CanceledAppointmentInfoViewHolder(private val canceledAppointmentItemViewBinding: CanceledAppointmentItemViewBinding): RecyclerView.ViewHolder(canceledAppointmentItemViewBinding.root){
-        fun bind(canceledAppointmentDataItem: CanceledAppointmentDataItem){
+        fun bind(canceledAppointmentDataItem: Appointment){
             Glide.with(canceledAppointmentItemViewBinding.root)
-                .load(canceledAppointmentDataItem.canceledAppointmentDoctorImage)
+                .load(canceledAppointmentDataItem.doctorImage)
                 .into(canceledAppointmentItemViewBinding.ivCanceledAppointmentDoctorImage)
-            canceledAppointmentItemViewBinding.tvCanceledAppointmentDoctorName.text = canceledAppointmentDataItem.canceledAppointmentDoctorName
-            canceledAppointmentItemViewBinding.tvCanceledAppointmentDoctorSpeciality.text = canceledAppointmentDataItem.canceledAppointmentDoctorSpeciality
-            canceledAppointmentItemViewBinding.canceledAppointmentDay.text = canceledAppointmentDataItem.canceledAppointmentDay
-            canceledAppointmentItemViewBinding.canceledAppointmentDate.text = canceledAppointmentDataItem.canceledAppointmentDate
-            canceledAppointmentItemViewBinding.canceledAppointmentTimeFrom.text = canceledAppointmentDataItem.canceledAppointmentTimeFrom
-            canceledAppointmentItemViewBinding.canceledAppointmentTimeTo.text = canceledAppointmentDataItem.canceledAppointmentTimeTo
+            canceledAppointmentItemViewBinding.tvCanceledAppointmentDoctorName.text = canceledAppointmentDataItem.doctorName
+            canceledAppointmentItemViewBinding.tvCanceledAppointmentDoctorSpeciality.text = canceledAppointmentDataItem.doctorSpecialty
+            canceledAppointmentItemViewBinding.canceledAppointmentDay.text = canceledAppointmentDataItem.appointmentDay
+            canceledAppointmentItemViewBinding.canceledAppointmentDate.text = canceledAppointmentDataItem.appointmentDate
+            canceledAppointmentItemViewBinding.canceledAppointmentTimeFrom.text = canceledAppointmentDataItem.appointmentFromTime
+            canceledAppointmentItemViewBinding.canceledAppointmentTimeTo.text = canceledAppointmentDataItem.appointmentToTime
 
         }
     }

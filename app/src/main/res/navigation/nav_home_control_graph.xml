@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_walletFragment"
             app:destination="@id/walletFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_doctorDescriptionFragment"
+            app:destination="@id/doctorDescriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/appointmentFragment"
@@ -32,6 +35,9 @@
         <action
             android:id="@+id/action_appointmentFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_appointmentFragment_to_rescheduleAppointmentFragment"
+            app:destination="@id/rescheduleAppointmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -46,12 +52,19 @@
         <action
             android:id="@+id/action_uploadFragment_to_uploadPreviewFragment"
             app:destination="@id/uploadPreviewFragment" />
+        <action
+            android:id="@+id/action_uploadFragment_to_documentInfoFragment"
+            app:destination="@id/documentInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorsFragment"
         android:name="com.example.heal_me.fragments.DoctorsFragment"
         android:label="fragment_doctors"
-        tools:layout="@layout/fragment_doctors" />
+        tools:layout="@layout/fragment_doctors" >
+        <action
+            android:id="@+id/action_doctorsFragment_to_doctorDescriptionFragment"
+            app:destination="@id/doctorDescriptionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/symptomsFragment"
         android:name="com.example.heal_me.fragments.SymptomsFragment"
@@ -83,6 +96,12 @@
         <action
             android:id="@+id/action_settingFragment_to_helpSupportFragment"
             app:destination="@id/helpSupportFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_favouriteDoctorFragment"
+            app:destination="@id/favouriteDoctorFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_myAppointmentFragment"
+            app:destination="@id/myAppointmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/walletFragment"
@@ -114,11 +133,12 @@
         android:name="com.example.heal_me.fragments.UploadPreviewFragment"
         android:label="fragment_upload_preview"
         tools:layout="@layout/fragment_upload_preview" >
-        <action
-            android:id="@+id/action_uploadPreviewFragment_to_uploadFragment"
-            app:destination="@id/uploadFragment"
-            app:popUpTo="@id/uploadPreviewFragment"
-            app:popUpToInclusive="true" />
+        <argument
+            android:name="imageUris"
+            app:argType="string" />
+        <argument
+            android:name="documentUris"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/updateAppFragment"
@@ -144,4 +164,45 @@
         android:name="com.example.heal_me.fragments.HelpSupportFragment"
         android:label="fragment_help_support"
         tools:layout="@layout/fragment_help_support" />
+    <fragment
+        android:id="@+id/doctorDescriptionFragment"
+        android:name="com.example.heal_me.fragments.DoctorDescriptionFragment"
+        android:label="fragment_doctor_description"
+        tools:layout="@layout/fragment_doctor_description" >
+        <argument
+            android:name="doctorId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/rescheduleAppointmentFragment"
+        android:name="com.example.heal_me.fragments.RescheduleAppointmentFragment"
+        android:label="fragment_reschedule_appointment"
+        tools:layout="@layout/fragment_reschedule_appointment" >
+        <argument
+            android:name="doctorId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteDoctorFragment"
+        android:name="com.example.heal_me.fragments.FavouriteDoctorFragment"
+        android:label="fragment_favourite_doctor"
+        tools:layout="@layout/fragment_favourite_doctor" >
+        <action
+            android:id="@+id/action_favouriteDoctorFragment_to_doctorDescriptionFragment"
+            app:destination="@id/doctorDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/documentInfoFragment"
+        android:name="com.example.heal_me.fragments.DocumentInfoFragment"
+        android:label="fragment_document_info"
+        tools:layout="@layout/fragment_document_info" >
+        <argument
+            android:name="documentId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAppointmentFragment"
+        android:name="com.example.heal_me.fragments.MyAppointmentFragment"
+        android:label="fragment_my_appointment"
+        tools:layout="@layout/fragment_my_appointment" />
 </navigation>

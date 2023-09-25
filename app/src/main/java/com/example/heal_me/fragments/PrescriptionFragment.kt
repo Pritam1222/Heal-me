@@ -5,13 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.heal_me.R
+import com.example.heal_me.adapters.UploadDocumentAdapter
+import com.example.heal_me.data.DoctorsDatabase
 import com.example.heal_me.databinding.FragmentPrescriptionBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class PrescriptionFragment : Fragment() {
-    lateinit var fragmentPrescriptionBinding: FragmentPrescriptionBinding
+    private lateinit var fragmentPrescriptionBinding: FragmentPrescriptionBinding
+    private lateinit var doctorsDatabase: DoctorsDatabase
+    private lateinit var uploadDocumentAdapter: UploadDocumentAdapter
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +25,19 @@ class PrescriptionFragment : Fragment() {
     ): View? {
         fragmentPrescriptionBinding = FragmentPrescriptionBinding.inflate(layoutInflater)
 
+        doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
 
+        bottomNavigationView = activity?.findViewById(R.id.bottom_navigation)
+        uploadDocumentAdapter = UploadDocumentAdapter(bottomNavigationView!!, doctorsDatabase)
+
+        doctorsDatabase.uploadDocDao().getDocumentByType("prescription").observe(viewLifecycleOwner) { data ->
+            uploadDocumentAdapter.submitList(data)
+        }
+
+        fragmentPrescriptionBinding.rvPrescriptionDocument.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = uploadDocumentAdapter
+        }
 
         return fragmentPrescriptionBinding.root
     }

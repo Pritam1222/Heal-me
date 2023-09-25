@@ -1,35 +1,30 @@
+@file:Suppress("OverrideDeprecatedMigration", "OverrideDeprecatedMigration")
+
 package com.example.heal_me.fragments
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.heal_me.R
-import com.example.heal_me.SharedViewModel
 import com.example.heal_me.databinding.FragmentSettingBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+@Suppress("OverrideDeprecatedMigration", "OverrideDeprecatedMigration")
 class SettingFragment : Fragment() {
 
     private var _binding: FragmentSettingBinding? = null
@@ -40,7 +35,6 @@ class SettingFragment : Fragment() {
     private val IMAGE_FILENAME = "profile_image.jpg"
     private var imageBitmap: Bitmap? = null
     private var imageUri: Uri? = null
-
 
 
     override fun onCreateView(
@@ -67,6 +61,21 @@ class SettingFragment : Fragment() {
 
         toolbarSetting.setNavigationOnClickListener {
             findNavController().navigateUp()
+        }
+
+        binding.settingsMyAppointment.setOnClickListener {
+            it.findNavController().navigate(R.id.action_settingFragment_to_myAppointmentFragment)
+
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility =
+                View.GONE
+        }
+
+
+        binding.settingsFavouriteDoctors.setOnClickListener{
+            it.findNavController().navigate(R.id.action_settingFragment_to_favouriteDoctorFragment)
+
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility =
+                View.GONE
         }
 
         binding.settingsTermsConditions.setOnClickListener {
@@ -158,6 +167,7 @@ class SettingFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val editor = sharedPreferences.edit()
         if (requestCode == GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val imageUri = data?.data
             if (imageUri != null) {
@@ -169,9 +179,8 @@ class SettingFragment : Fragment() {
                 binding.ivSettingProfile.setImageBitmap(imageBitmap)
                 // Save the image
                 imageBitmap?.let { saveImage(it) }
-                // Set the imageUri in the shared ViewModel
-                val sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-                sharedViewModel.imageUri = imageUri.toString()
+                // adding imageUri into the shared preferences
+                editor.putString("profile_image", imageUri.toString()).apply()
             }
         }
     }

@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
@@ -29,6 +30,7 @@ import com.example.heal_me.R
 import com.example.heal_me.databinding.FragmentUploadBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+@Suppress("DEPRECATION")
 class UploadFragment : Fragment() {
     private lateinit var fragmentUploadBinding: FragmentUploadBinding
     private lateinit var navController : NavController
@@ -137,14 +139,16 @@ class UploadFragment : Fragment() {
          }
 
          fragmentUploadBinding.clUploadButton.setOnClickListener {
-             val options = arrayOf("Capture Image", "Select Photo","Select Document")
+
+//             openDocument()
+
+             val options = arrayOf("Select Photo","Select Document")
              val builder = AlertDialog.Builder(requireContext())
              builder.setTitle("Choose an option")
              builder.setItems(options) { dialog, which ->
                  when (which) {
-                     0 -> openCamera()
-                     1 -> openGallery()
-                     2 -> openDocument()
+                     0 -> openGallery()
+                     1 -> openDocument()
                  }
              }
              builder.show()
@@ -154,18 +158,18 @@ class UploadFragment : Fragment() {
          return fragmentUploadBinding.root
     }
 
-    private fun openCamera() {
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
-            == PackageManager.PERMISSION_GRANTED) {
-            // Permission is already granted, so launch the camera app
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, 0)
-        } else {
-            // Permission is not granted, request for the permission
-            ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
-        }
-    }
+//    private fun openCamera() {
+//        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+//            == PackageManager.PERMISSION_GRANTED) {
+//            // Permission is already granted, so launch the camera app
+//            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//            startActivityForResult(intent, 0)
+//        } else {
+//            // Permission is not granted, request for the permission
+//            ActivityCompat.requestPermissions(
+//                requireActivity(), arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+//        }
+//    }
 
     private fun openGallery() {
         // create an intent to pick an image
@@ -189,6 +193,9 @@ class UploadFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        var documentUris : String = ""
+        var imageUris : String = ""
+
         if (requestCode == SELECT_DOCUMENT_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             data?.data?.let { documentUri ->
                 val documentName = getDocumentName(documentUri)
@@ -197,7 +204,9 @@ class UploadFragment : Fragment() {
                 // display the document in the ImageView
 //                displayDocument(documentUri)
 
-                val action: NavDirections = UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment()
+                documentUris = documentUri.toString()
+                val action =
+                    UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment(imageUris,documentUris)
                 navController.navigate(action)
 
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
@@ -212,22 +221,24 @@ class UploadFragment : Fragment() {
             // display the image in the ImageView
 //            fragmentUploadBinding.changeImage.setImageURI(imageUri)
 
-            val action: NavDirections = UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment()
-            navController.navigate(action)
-
-            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
-
-        }else if (requestCode == 0 && resultCode == AppCompatActivity.RESULT_OK) {
-            // Image is captured successfully, do something with the captured image
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-//            fragmentUploadBinding.changeImage.setImageBitmap(imageBitmap)
-
-            val action: NavDirections = UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment()
+            imageUris = imageUri.toString()
+            val action: NavDirections = UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment(imageUris,documentUris)
             navController.navigate(action)
 
             activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
 
         }
+//        else if (requestCode == 0 && resultCode == AppCompatActivity.RESULT_OK) {
+//            // Image is captured successfully, do something with the captured image
+//            val imageBitmap = data?.extras?.get("data") as Bitmap
+////            fragmentUploadBinding.changeImage.setImageBitmap(imageBitmap)
+//
+////            val action: NavDirections = UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment()
+////            navController.navigate(action)
+//
+//            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+//
+//        }
     }
 
     private fun getImageName(imageUri: Uri): String? {
@@ -248,35 +259,5 @@ class UploadFragment : Fragment() {
         return name
     }
 
-    private fun displayDocument(documentUri: Uri) {
-        // open the document using a ParcelFileDescriptor
-        val fileDescriptor = requireContext().contentResolver.openFileDescriptor(documentUri, "r")?.fileDescriptor
-        val parcelFileDescriptor = ParcelFileDescriptor.dup(fileDescriptor)
-
-        val pdfRenderer = parcelFileDescriptor.let { PdfRenderer(it) }
-
-        // get the first page of the document
-        val pageCount = pdfRenderer.pageCount
-        if (pageCount == 0) {
-            Toast.makeText(requireContext(), "Document has no pages", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val page = pdfRenderer.openPage(0)
-
-        // render the page as a bitmap
-        val bitmap = Bitmap.createBitmap(page.width, page.height, Bitmap.Config.ARGB_8888)
-        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-
-        // set the bitmap in the ImageView
-//        fragmentUploadBinding.changeImage.setImageBitmap(bitmap)
-
-        // clean up
-        page.close()
-        pdfRenderer.close()
-        parcelFileDescriptor.close()
-    }
-
 }
-
 
