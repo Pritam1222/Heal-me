@@ -13,9 +13,11 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -84,6 +86,8 @@ class InfoEmailFragment : Fragment() {
             it.findNavController().navigate(R.id.action_infoEmailFragment_to_termsConditionsFragment)
         }
 
+        binding.email.imeOptions = EditorInfo.IME_ACTION_DONE
+
 
         val editor = sharedPreferences.edit()
 
@@ -92,10 +96,10 @@ class InfoEmailFragment : Fragment() {
             val email = binding.email.text.toString()
             val gender = binding.genderText.text.toString()
 
-            if (email.isEmpty()){
+            if (email.isEmpty() || gender.isEmpty()){
                 Toast.makeText(activity, "Please fill the data", Toast.LENGTH_SHORT).show()
-            }else if (gender.isEmpty()){
-                Toast.makeText(activity, "Please fill the data", Toast.LENGTH_SHORT).show()
+            }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                Toast.makeText(activity, "Please provide valid email", Toast.LENGTH_SHORT).show()
             }else {
                 // Save the name and dob to SharedPreferences
                 editor.putString("email", email)

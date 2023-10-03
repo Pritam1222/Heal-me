@@ -1,14 +1,17 @@
 package com.example.heal_me.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
+import android.graphics.drawable.ClipDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -18,9 +21,12 @@ import com.example.heal_me.R
 import com.example.heal_me.data.Appointment
 import com.example.heal_me.data.Doctors
 import com.example.heal_me.data.DoctorsDatabase
+import com.example.heal_me.data.TransactionHistory
 import com.example.heal_me.databinding.FragmentDoctorDescriptionBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -28,6 +34,7 @@ import java.util.Locale
 class DoctorDescriptionFragment : Fragment() {
     private lateinit var fragmentDoctorsDescriptionBinding : FragmentDoctorDescriptionBinding
     private lateinit var doctorsDatabase: DoctorsDatabase
+    private lateinit var sharedPreferences: SharedPreferences
     private val args: DoctorDescriptionFragmentArgs by navArgs()
 
     lateinit var doctor : Doctors
@@ -52,6 +59,20 @@ class DoctorDescriptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentDoctorsDescriptionBinding = FragmentDoctorDescriptionBinding.inflate(layoutInflater)
+
+        sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+
+        val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
+        whiteNavigationIcon.setTint(resources.getColor(R.color.white))
+
+        val toolbar = fragmentDoctorsDescriptionBinding.toolbarDoctorDescription
+        toolbar.navigationIcon = whiteNavigationIcon
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
         doctorId = args.doctorId
@@ -92,6 +113,7 @@ class DoctorDescriptionFragment : Fragment() {
         })
 
         val calendar = Calendar.getInstance()
+        val currentCompleteDate = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
         // Move the calendar to the next day
         calendar.add(Calendar.DAY_OF_MONTH, 1)
         fragmentDoctorsDescriptionBinding.tvDoctorDescriptionDay1.text = SimpleDateFormat("E", Locale.getDefault()).format(calendar.time)
@@ -224,21 +246,46 @@ class DoctorDescriptionFragment : Fragment() {
             updateDoctorFavoriteStatus(isFavourite)
         }
 
+        val editor = sharedPreferences.edit()
+        var walletCash = sharedPreferences.getString("wallet_cash", "")
+
         fragmentDoctorsDescriptionBinding.buDoctorDescriptionBookAppointment.setOnClickListener {
 
-            if(!isDateSelected || !isTimeSelected){
-                Toast.makeText(requireContext(), "Please schedule the appointment", Toast.LENGTH_SHORT).show()
-            }else{
-                GlobalScope.launch {
-                    try {
-                        doctorsDatabase.appointmentDao().insertAppointment(Appointment(0, doctorId, doctorName, doctorImage, doctorSpecialty, doctorExperience, appointmentType, appointmentDay, appointmentDate, appointmentFromTime, appointmentToTime, doctorPatients, doctorReviews, doctorConsultCharge, doctorRating))
+            if (walletCash.isNullOrEmpty()) {
+                Toast.makeText(requireContext(), "Wallet cash not found", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        // Log or handle the exception as needed
+            try {
+                val currentWalletCash = walletCash!!.toDouble()
+                val newWalletCash = currentWalletCash - doctorConsultCharge.toDouble()
+
+                if(doctorConsultCharge.toDouble() <= currentWalletCash){
+                    // Update the wallet cash in shared preferences
+                    editor.putString("wallet_cash", newWalletCash.toString()).apply()
+                }
+                if (!isDateSelected || !isTimeSelected) {
+                    Toast.makeText(requireContext(), "Please schedule the appointment", Toast.LENGTH_SHORT).show()
+                } else if(doctorConsultCharge.toDouble() > currentWalletCash){
+                    Toast.makeText(requireContext(), "Insufficient Wallet Balance", Toast.LENGTH_SHORT).show()
+                }else {
+                    GlobalScope.launch {
+                        try {
+                            doctorsDatabase.appointmentDao().insertAppointment(Appointment(0, doctorId, doctorName, doctorImage, doctorSpecialty, doctorExperience, appointmentType, appointmentDay, appointmentDate, appointmentFromTime, appointmentToTime, doctorPatients, doctorReviews, doctorConsultCharge, doctorRating))
+                            doctorsDatabase.transactionHistoryDao().insertTransaction(TransactionHistory(0, currentCompleteDate, doctorConsultCharge.toDouble()))
+                            withContext(Dispatchers.Main) {
+                                // Navigate on the main thread
+                                findNavController().navigateUp()
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            // Log or handle the exception as needed
+                        }
                     }
                 }
-                findNavController().navigateUp()
+            } catch (e: NumberFormatException) {
+                // Handle the case where walletCash or doctorConsultCharge cannot be parsed as a double
+                Toast.makeText(requireContext(), "Invalid wallet cash or doctor charge", Toast.LENGTH_SHORT).show()
             }
         }
 

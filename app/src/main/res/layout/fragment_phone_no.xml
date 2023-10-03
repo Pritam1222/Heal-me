@@ -100,9 +100,14 @@
             android:textColor="@color/white"
             android:layout_width="280dp"
             android:layout_height="60dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             />
+
+        <ProgressBar
+            android:id="@+id/phone_no_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
 
     </LinearLayout>
 

@@ -7,31 +7,26 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Doctors::class, Appointment::class, UploadDoc::class], version = 5)
+@Database(entities = [Doctors::class, Appointment::class, UploadDoc::class, TransactionHistory::class], version = 6)
 abstract class DoctorsDatabase : RoomDatabase(){
     abstract fun doctorsDao() : DoctorsDao
     abstract fun appointmentDao() : AppointmentDao
     abstract fun uploadDocDao() : UploadDocDao
+    abstract fun transactionHistoryDao() : TransactionHistoryDao
 
     companion object{
         @Volatile
         private var INSTANCE: DoctorsDatabase? = null
 
-        private val MIGRATION_4_5 = object : Migration(4, 5) {
+        private val MIGRATION_5_6 = object : Migration(5, 6) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // Add SQL statements here to update the schema for the new table
                 database.execSQL(
 
-                "CREATE TABLE IF NOT EXISTS uploadDoc (" +
-                            "documentId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT '0'," +
-                            "patientName TEXT NULL," +
-                            "documentDate INTEGER NULL," +
-                            "documentMonth TEXT NULL," +
-                            "documentCompleteDate TEXT NULL," +
-                            "documentTime TEXT NULL," +
-                            "documentUri TEXT NULL," +
-                            "imageUri TEXT NULL," +
-                            "documentType TEXT NULL," +
+                "CREATE TABLE IF NOT EXISTS transactionHistory (" +
+                            "transactionId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT '0'," +
+                            "transactionDate TEXT NULL," +
+                            "transactionAmount REAL NULL," +
                             ")")
             }
         }
@@ -41,7 +36,7 @@ abstract class DoctorsDatabase : RoomDatabase(){
                 synchronized(this){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
                         DoctorsDatabase::class.java,
-                        "doctorsDB").addMigrations(DoctorsDatabase.MIGRATION_4_5).build()
+                        "doctorsDB").addMigrations(DoctorsDatabase.MIGRATION_5_6).build()
                 }
             }
             return INSTANCE!!

@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
@@ -48,6 +49,19 @@ class UploadPreviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentUploadPreviewBinding = FragmentUploadPreviewBinding.inflate(layoutInflater)
+
+        val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
+        whiteNavigationIcon.setTint(resources.getColor(R.color.white))
+
+        val toolbar = fragmentUploadPreviewBinding.toolbarUploadPreview
+        toolbar.navigationIcon = whiteNavigationIcon
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+
         doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
 
         val argDocumentUri = args.documentUris

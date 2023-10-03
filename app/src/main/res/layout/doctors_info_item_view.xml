@@ -23,17 +23,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_doctors_info_image"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_doctors_info_image"
                 android:layout_width="77dp"
                 android:layout_height="77dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="20dp"
-                android:scaleType="centerCrop"
+                android:background="@drawable/card_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_doctors_info_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_doctors_info_name"
@@ -45,7 +55,7 @@
                 android:layout_marginTop="17dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintStart_toEndOf="@id/cv_doctors_info_image"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
@@ -57,7 +67,7 @@
                 android:text="Heart surgeon"
                 android:textSize="15sp"
                 android:textColor="#C4C4C4"
-                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintStart_toEndOf="@id/cv_doctors_info_image"
                 app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_name"/>
 
             <ImageView
@@ -89,7 +99,7 @@
                 android:src="@drawable/ic_rating_star"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="10dp"
-                app:layout_constraintStart_toEndOf="@id/iv_doctors_info_image"
+                app:layout_constraintStart_toEndOf="@id/cv_doctors_info_image"
                 app:layout_constraintTop_toBottomOf="@id/tv_doctors_info_speciality"/>
 
             <ImageView

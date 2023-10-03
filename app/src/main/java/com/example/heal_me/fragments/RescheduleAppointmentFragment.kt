@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.heal_me.R
 import com.example.heal_me.data.Appointment
 import com.example.heal_me.data.DoctorsDatabase
 import com.example.heal_me.databinding.FragmentRescheduleAppointmentBinding
@@ -50,6 +52,18 @@ class RescheduleAppointmentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentRescheduleAppointmentBinding = FragmentRescheduleAppointmentBinding.inflate(layoutInflater)
+
+        val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
+        whiteNavigationIcon.setTint(resources.getColor(R.color.white))
+
+        val toolbar = fragmentRescheduleAppointmentBinding.toolbarReschedule
+        toolbar.navigationIcon = whiteNavigationIcon
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
         appointmentId = args.doctorId
@@ -209,7 +223,11 @@ class RescheduleAppointmentFragment : Fragment() {
                         appointment = fetchedAppointment
                         // Now you have the appointment object with the correct data
                         // You can update its properties as needed
-                        appointment.appointmentType = "Upcoming"
+                        appointment.appointmentType = appointmentType
+                        appointment.appointmentDay = appointmentDay
+                        appointment.appointmentDate = appointmentDate
+                        appointment.appointmentFromTime = appointmentFromTime
+                        appointment.appointmentToTime = appointmentToTime
 
                         // Update other appointment properties if needed
 

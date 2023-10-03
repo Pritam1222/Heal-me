@@ -23,16 +23,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_canceled_appointment_doctor_image"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_canceled_appointment_doctor_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="21dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/doctor"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                android:background="@drawable/card_background"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_canceled_appointment_doctor_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_canceled_appointment_doctor_name"
@@ -44,7 +53,7 @@
                 android:layout_marginTop="23dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/iv_canceled_appointment_doctor_image"
+                app:layout_constraintStart_toEndOf="@id/cv_canceled_appointment_doctor_image"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
@@ -56,19 +65,8 @@
                 android:text="General practitioners"
                 android:textSize="15sp"
                 android:textColor="#C4C4C4"
-                app:layout_constraintStart_toEndOf="@id/iv_canceled_appointment_doctor_image"
+                app:layout_constraintStart_toEndOf="@id/cv_canceled_appointment_doctor_image"
                 app:layout_constraintTop_toBottomOf="@id/tv_canceled_appointment_doctor_name"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:background="@drawable/appointment_button_background"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="14dp"
-                android:paddingStart="5dp"
-                android:drawableStart="@drawable/appointment_button_arrow"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
 
             <View
                 android:layout_width="290dp"
@@ -77,7 +75,7 @@
                 android:background="#DDDDDD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_canceled_appointment_doctor_image" />
+                app:layout_constraintTop_toBottomOf="@id/cv_canceled_appointment_doctor_image" />
 
             <ImageView
                 android:id="@+id/ic_timer_circle"
@@ -87,7 +85,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="42dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_canceled_appointment_doctor_image"/>
+                app:layout_constraintTop_toBottomOf="@id/cv_canceled_appointment_doctor_image"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -96,7 +94,7 @@
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/ic_timer_circle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_canceled_appointment_doctor_image">
+                app:layout_constraintTop_toBottomOf="@id/cv_canceled_appointment_doctor_image">
 
                 <TextView
                     android:id="@+id/canceled_appointment_day"
@@ -160,7 +158,7 @@
                 android:layout_marginBottom="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_canceled_appointment_doctor_image"
+                app:layout_constraintTop_toBottomOf="@id/cv_canceled_appointment_doctor_image"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

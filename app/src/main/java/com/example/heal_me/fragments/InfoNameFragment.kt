@@ -22,6 +22,7 @@ import com.example.heal_me.R
 import com.example.heal_me.databinding.FragmentInfoNameBinding
 import java.util.*
 import android.content.SharedPreferences
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -79,6 +80,8 @@ class InfoNameFragment : Fragment() {
         binding.termsConditions.setOnClickListener {
             it.findNavController().navigate(R.id.action_infoNameFragment_to_termsConditionsFragment)
         }
+
+        binding.fullName.imeOptions = EditorInfo.IME_ACTION_DONE
 
         val editor = sharedPreferences.edit()
 

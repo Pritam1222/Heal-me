@@ -205,6 +205,7 @@ class UploadFragment : Fragment() {
 //                displayDocument(documentUri)
 
                 documentUris = documentUri.toString()
+
                 val action =
                     UploadFragmentDirections.actionUploadFragmentToUploadPreviewFragment(imageUris,documentUris)
                 navController.navigate(action)

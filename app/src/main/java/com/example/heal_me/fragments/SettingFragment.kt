@@ -3,6 +3,7 @@
 package com.example.heal_me.fragments
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -14,13 +15,20 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.heal_me.HomeNavControl
+import com.example.heal_me.LoginActivity
 import com.example.heal_me.R
+import com.example.heal_me.SplashScreenActivity
+import com.example.heal_me.data.Appointment
 import com.example.heal_me.databinding.FragmentSettingBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -30,6 +38,7 @@ class SettingFragment : Fragment() {
     private var _binding: FragmentSettingBinding? = null
     private val binding get() = _binding!!
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var auth : FirebaseAuth
 
     private val GALLERY_REQUEST_CODE = 103
     private val IMAGE_FILENAME = "profile_image.jpg"
@@ -43,6 +52,7 @@ class SettingFragment : Fragment() {
     ): View? {
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
 
+        auth = FirebaseAuth.getInstance()
         sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
 
         val mobNum = sharedPreferences.getString("mob_num", "")
@@ -62,6 +72,14 @@ class SettingFragment : Fragment() {
         toolbarSetting.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+
+        binding.settingsNotification.setOnClickListener {
+            it.findNavController().navigate(R.id.action_settingFragment_to_notificationFragment)
+
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility =
+                View.GONE
+        }
+
 
         binding.settingsMyAppointment.setOnClickListener {
             it.findNavController().navigate(R.id.action_settingFragment_to_myAppointmentFragment)
@@ -88,12 +106,6 @@ class SettingFragment : Fragment() {
         binding.referApp.setOnClickListener {
             it.findNavController().navigate(R.id.action_settingFragment_to_referFragment)
 
-            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility =
-                View.GONE
-        }
-
-        binding.settingLogout.setOnClickListener {
-            it.findNavController().navigate(R.id.action_settingFragment_to_logoutDialogFragment)
             activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility =
                 View.GONE
         }
@@ -125,6 +137,13 @@ class SettingFragment : Fragment() {
                 View.GONE
         }
 
+        binding.settingLogout.setOnClickListener {
+
+            showCustomDialog(requireContext())
+
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+        }
+
         // Load and set the image if it exists
         val savedImageBitmap = loadSavedImage()
         if (savedImageBitmap != null) {
@@ -140,6 +159,43 @@ class SettingFragment : Fragment() {
 
         return binding.root
     }
+
+    private fun showCustomDialog(context: Context) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.fragment_logout_dialog)
+
+        val userName = sharedPreferences.getString("name", "")
+        val tvUserName = dialog.findViewById<TextView>(R.id.user_name)
+
+        tvUserName.text = userName.toString()
+
+        val dialogOKButton = dialog.findViewById<Button>(R.id.bu_logout)
+        dialogOKButton.setOnClickListener {
+
+//             Handle the "OK" button click
+            val editor = sharedPreferences.edit()
+            editor.putString("mob_num", "")
+            editor.putString("name", "")
+            editor.putString("dob", "")
+            editor.putString("email", "")
+            editor.putString("gender", "")
+            editor.apply()
+
+            auth.signOut()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            requireActivity().finish()
+            dialog.dismiss()
+        }
+
+        val dialogCancelButton = dialog.findViewById<Button>(R.id.bu_cancel)
+        dialogCancelButton.setOnClickListener {
+            // Handle the "Cancel" button click
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 
     private fun saveImage(imageBitmap: Bitmap) {
         val imageFile = File(requireContext().filesDir, IMAGE_FILENAME)

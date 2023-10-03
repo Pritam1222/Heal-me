@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.heal_me.R
 import com.example.heal_me.adapters.DoctorsInfoAdapter
@@ -23,6 +25,18 @@ class FavouriteDoctorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentFavouriteDoctorBinding = FragmentFavouriteDoctorBinding.inflate(layoutInflater)
+
+        val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
+        whiteNavigationIcon.setTint(resources.getColor(R.color.white))
+
+        val toolbar = fragmentFavouriteDoctorBinding.toolbarFavDoc
+        toolbar.navigationIcon = whiteNavigationIcon
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
 

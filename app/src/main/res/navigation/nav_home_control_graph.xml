@@ -43,7 +43,11 @@
         android:id="@+id/accountFragment"
         android:name="com.example.heal_me.fragments.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_accountEditFragment"
+            app:destination="@id/accountEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/uploadFragment"
         android:name="com.example.heal_me.fragments.UploadFragment"
@@ -69,7 +73,11 @@
         android:id="@+id/symptomsFragment"
         android:name="com.example.heal_me.fragments.SymptomsFragment"
         android:label="fragment_symptoms"
-        tools:layout="@layout/fragment_symptoms" />
+        tools:layout="@layout/fragment_symptoms" >
+        <action
+            android:id="@+id/action_symptomsFragment_to_doctorsFragment"
+            app:destination="@id/doctorsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.heal_me.fragments.SettingFragment"
@@ -81,9 +89,6 @@
         <action
             android:id="@+id/action_settingFragment_to_referFragment"
             app:destination="@id/referFragment" />
-        <action
-            android:id="@+id/action_settingFragment_to_logoutDialogFragment"
-            app:destination="@id/logoutDialogFragment" />
         <action
             android:id="@+id/action_settingFragment_to_updateAppFragment"
             app:destination="@id/updateAppFragment" />
@@ -102,6 +107,9 @@
         <action
             android:id="@+id/action_settingFragment_to_myAppointmentFragment"
             app:destination="@id/myAppointmentFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/walletFragment"
@@ -118,11 +126,6 @@
         android:name="com.example.heal_me.fragments.ReferFragment"
         android:label="fragment_refer"
         tools:layout="@layout/fragment_refer" />
-    <dialog
-        android:id="@+id/logoutDialogFragment"
-        android:name="com.example.heal_me.fragments.LogoutDialogFragment"
-        android:label="fragment_logout_dialog"
-        tools:layout="@layout/fragment_logout_dialog" />
     <fragment
         android:id="@+id/selectedRewardFragment"
         android:name="com.example.heal_me.fragments.SelectedRewardFragment"
@@ -205,4 +208,14 @@
         android:name="com.example.heal_me.fragments.MyAppointmentFragment"
         android:label="fragment_my_appointment"
         tools:layout="@layout/fragment_my_appointment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.heal_me.fragments.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/accountEditFragment"
+        android:name="com.example.heal_me.fragments.AccountEditFragment"
+        android:label="fragment_account_edit"
+        tools:layout="@layout/fragment_account_edit" />
 </navigation>

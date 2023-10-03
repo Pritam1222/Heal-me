@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".fragments.LogoutDialogFragment">
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,6 +25,7 @@
         android:textSize="18sp"/>
 
     <TextView
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" @RALPHEDWARDS3 "
@@ -34,6 +35,7 @@
         android:textSize="18sp"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bu_cancel"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:background="@drawable/button"
@@ -43,6 +45,7 @@
         android:textColor="@color/black"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bu_logout"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:text="Log Out"

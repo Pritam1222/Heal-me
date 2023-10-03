@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588276865261",
+    "project_id": "heal-me-340a6",
+    "storage_bucket": "heal-me-340a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588276865261:android:bb408abe752d47867a14e4",
+        "android_client_info": {
+          "package_name": "com.example.heal_me"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB19EccEOlq5vVi-do_SxCJCdPcVckcOwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

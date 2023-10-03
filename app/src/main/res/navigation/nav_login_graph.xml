@@ -30,6 +30,15 @@
         <action
             android:id="@+id/action_otpFragment_to_termsConditionsFragment"
             app:destination="@id/termsConditionsFragment" />
+        <argument
+            android:name="verificationId"
+            app:argType="string" />
+        <argument
+            android:name="token"
+            app:argType="com.google.firebase.auth.PhoneAuthProvider$ForceResendingToken" />
+        <argument
+            android:name="fullNumber"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/infoNameFragment"

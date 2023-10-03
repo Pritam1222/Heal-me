@@ -9,7 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -35,6 +38,7 @@ class HomeFragment : Fragment() {
     private var arrayList:ArrayList<SymptomItems> ? = null
     private var gridView:GridView ? = null
     private var symptomsAdapter:SymptomsAdapters ? = null
+    private lateinit var navController : NavController
 
     private lateinit var binding : FragmentHomeBinding
     private lateinit var handler: Handler
@@ -83,6 +87,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        val navHostFragment = (context as FragmentActivity).supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
         homeAdvViewPager = binding.viewPagerAd
 
@@ -183,7 +190,6 @@ class HomeFragment : Fragment() {
 
         binding.doctorsSeeAll.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment2_to_doctorsFragment)
-
             activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
         }
 
@@ -232,6 +238,14 @@ class HomeFragment : Fragment() {
         arrayList = setDataList()
         symptomsAdapter = SymptomsAdapters(requireContext(),arrayList!!)
         gridView?.adapter = symptomsAdapter
+        // Set an item click listener for the GridView
+        gridView!!.setOnItemClickListener { _, _, position, _ ->
+            // Handle item click by opening a new fragment
+            val action =
+                HomeFragmentDirections.actionHomeFragment2ToDoctorsFragment()
+            navController.navigate(action)
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+        }
 
         return binding.root
     }

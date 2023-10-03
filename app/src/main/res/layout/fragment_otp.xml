@@ -56,7 +56,7 @@ tools:context=".fragments.OtpFragment">
         app:viewType="none"
         android:hint="0000"
         android:inputType="number"
-        app:itemCount="4"
+        app:itemCount="6"
         android:focusable="true"
         android:focusableInTouchMode="true"
         app:itemWidth="52dp"
@@ -98,12 +98,14 @@ tools:context=".fragments.OtpFragment">
         >
         
         <TextView
+            android:id="@+id/resend_otp_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
             android:text="If you didn’t receive code! "/>
 
         <TextView
+            android:id="@+id/resend_otp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Resend"
@@ -111,6 +113,14 @@ tools:context=".fragments.OtpFragment">
             android:textColor="#031660"/>
         
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/otp_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"/>
+
 
 </LinearLayout>
 

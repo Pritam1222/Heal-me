@@ -26,12 +26,12 @@ class TermsConditionsFragment : Fragment() {
         val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
         whiteNavigationIcon.setTint(resources.getColor(R.color.white))
 
-        val toolbarTC = binding.toolbarTc
-        toolbarTC.navigationIcon = whiteNavigationIcon
+        val toolbar = binding.toolbarTc
+        toolbar.navigationIcon = whiteNavigationIcon
 
-        (activity as AppCompatActivity).setSupportActionBar(toolbarTC)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        toolbarTC.setNavigationOnClickListener {
+        toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
 

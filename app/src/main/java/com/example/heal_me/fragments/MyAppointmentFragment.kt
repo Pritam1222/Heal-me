@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.heal_me.AppointmentSharedViewModel
 import com.example.heal_me.R
@@ -30,6 +32,18 @@ class MyAppointmentFragment : Fragment(), OnAppointmentUpdateListener {
         savedInstanceState: Bundle?
     ): View? {
         fragmentMyAppointmentBinding = FragmentMyAppointmentBinding.inflate(layoutInflater)
+
+        val whiteNavigationIcon = resources.getDrawable(R.drawable.ic_arrow_back)
+        whiteNavigationIcon.setTint(resources.getColor(R.color.white))
+
+        val toolbar = fragmentMyAppointmentBinding.toolbarMyAppointment
+        toolbar.navigationIcon = whiteNavigationIcon
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         doctorsDatabase = DoctorsDatabase.getDatabase(requireContext())
 

@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.heal_me.AppointmentSharedViewModel
 import com.example.heal_me.data.Appointment
 import com.example.heal_me.databinding.CanceledAppointmentItemViewBinding
 
 
-class CanceledAppointmentAdapter : ListAdapter<Appointment, CanceledAppointmentAdapter.CanceledAppointmentInfoViewHolder>(CanceledAppointmentAdapter.DATA_COMPARATOR){
+class CanceledAppointmentAdapter(private val sharedViewModel: AppointmentSharedViewModel) : ListAdapter<Appointment, CanceledAppointmentAdapter.CanceledAppointmentInfoViewHolder>(CanceledAppointmentAdapter.DATA_COMPARATOR){
 
     private companion object {
         private val DATA_COMPARATOR = object : DiffUtil.ItemCallback<Appointment>() {
@@ -28,7 +29,7 @@ class CanceledAppointmentAdapter : ListAdapter<Appointment, CanceledAppointmentA
     }
 
 
-    class CanceledAppointmentInfoViewHolder(private val canceledAppointmentItemViewBinding: CanceledAppointmentItemViewBinding): RecyclerView.ViewHolder(canceledAppointmentItemViewBinding.root){
+    class CanceledAppointmentInfoViewHolder(val canceledAppointmentItemViewBinding: CanceledAppointmentItemViewBinding): RecyclerView.ViewHolder(canceledAppointmentItemViewBinding.root){
         fun bind(canceledAppointmentDataItem: Appointment){
             Glide.with(canceledAppointmentItemViewBinding.root)
                 .load(canceledAppointmentDataItem.doctorImage)
@@ -59,6 +60,11 @@ class CanceledAppointmentAdapter : ListAdapter<Appointment, CanceledAppointmentA
     override fun onBindViewHolder(holder: CanceledAppointmentInfoViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
+        }
+        val selectedItemId = getItem(position)?.id
+        holder.canceledAppointmentItemViewBinding.canceledAppointmentRescheduleButton.setOnClickListener {
+            // Update the selected appointment ID in the shared ViewModel
+            sharedViewModel.setSelectedAppointmentId(selectedItemId)
         }
     }
 

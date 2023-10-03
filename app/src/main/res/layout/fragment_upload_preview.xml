@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="Upload Document"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginEnd="70dp"
@@ -28,16 +28,24 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/docView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_docView"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:scaleType="fitCenter"
+        app:cardCornerRadius="10dp"
+        android:background="@drawable/card_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_upload_preview"
-        app:layout_constraintBottom_toTopOf="@id/cc_info_layout"/>
+        app:layout_constraintBottom_toTopOf="@id/cc_info_layout">
 
+        <ImageView
+            android:id="@+id/docView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"/>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cc_info_layout"

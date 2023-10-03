@@ -6,38 +6,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DoctorsFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/abl_doctors_fragment_app_bar_layout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_all_doctors"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:backgroundTint="#089BAB"
+        tools:ignore="MissingConstraints">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:title="All Doctors"
-                app:titleTextColor="@color/white"
-                android:backgroundTint="#089BAB"
-                app:titleMarginStart="150dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp"
-                tools:ignore="MissingConstraints" />
+            android:layout_height="wrap_content"
+            android:text="All Doctors"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginEnd="50dp"
+            android:textStyle="bold"
+            android:gravity="center" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_all_doctors_search_layout"
@@ -46,7 +36,7 @@
         android:layout_height="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/abl_doctors_fragment_app_bar_layout">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_all_doctors">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/search_card"

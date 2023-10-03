@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,126 +36,67 @@
         android:layout_below="@id/toolbar_help_support"
         >
 
+        <ImageView
+            android:layout_width="265dp"
+            android:layout_height="265dp"
+            android:src="@drawable/help_and_support"
+            android:layout_gravity="center_horizontal"/>
 
-        <ScrollView
-            android:id="@+id/scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="1. BACKGROUND"
-                    android:textStyle="bold"
-                    />
+        <TextView
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:textSize="27dp"
+            android:text="How can we help you?"
+            android:textAlignment="center"
+            android:textColor="#089BAB"
+            android:layout_gravity="center_horizontal"/>
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:paddingStart="5dp"
-                        android:layout_marginStart="20dp"
-                        android:textColor="@color/black"
-                        android:textAlignment="viewStart"
-                        android:text="PharmEasy acknowledges that customer satisfaction is the key cornerstone for its growth and customer-centricity is one of the core values that we, at PharmEasy, cherish and hope to uphold. We strive to provide the best customer experience from our end, however, if you face any issues and concerns with our services, we request you to refer to this policy which provides the detailed steps for customer grievance redressal.
-\n\nThe Company’s Customer Support Policy has been formulated in line with regulatory guidelines and other applicable laws on Customer Service. The policy outlines the framework for addressing customer grievances.
-\n\nThe Company defines customer complaints as a deficiency or a gap in the committed level of services rendered to the customer. Complaints can be on account of a breach in committed turnaround time, non-fulfillment of the request placed by customers, payment-related concerns, etc. It is clarified that the Company is purely an online intermediary connecting the sellers listed on PharmEasy platform with consumers and we neither control nor have any ownership of the products sold through our platform. Thus, all concerns with the fitness, merchantability, and adequacy of the products are the responsibility of the seller/retail partners and we will employ our best efforts to assist in getting all such product-related concerns resolved through them. We also request you to read the FAQs available at https://pharmeasy.in/help  as they may help to resolve certain queries that you may have concerning orders, returns, payments, Wallets, etc."
-                        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_gravity="center_horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="2. OBJECTIVE"
-                    android:textStyle="bold"
-                    />
+            <ImageView
+                android:layout_width="101dp"
+                android:layout_height="101dp"
+                android:src="@drawable/ellipse"
+                app:tint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
+            <ImageView
+                android:id="@+id/send_mail"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:padding="10dp"
+                android:src="@drawable/message_filled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:paddingStart="5dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@color/black"
-                    android:textAlignment="viewStart"
-                    android:text="The Objective of the policy is to ensure that:
-\n\nAll customers are treated fairly at all times.
-\nAll complaints, requests, and queries received from customers are responded to promptly and with courtesy within 24 hours of the complaint raised by the Customer on our portal.
-\nCustomers are fully informed of avenues to escalate their grievances and their rights to escalate if they are not satisfied with the response from the Customer Service Team."
-                    />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="4. Level 1: Customer Support"
-                    android:textStyle="bold"
-                    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Send us an email:"
+            android:textSize="20sp"
+            android:textColor="#C4C4C4"/>
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:paddingStart="5dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@color/black"
-                    android:textAlignment="viewStart"
-                    android:text="You can contact our customer service team via a call to 7666100300 or chat on the app or the website or send an email to care@pharmeasy.in which provides the online resolution to your queries/complaints across channels. The team will respond to your concern/query within 24 business hours from receipt of your query/concern via the 3 different channels available to you. An escalation matrix is available, in each communication channel, for you to speak to an agent’s linear supervisors, as and when required. Please use this option to ask for help in resolving your query."
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="5. Level 2: Grievance Officer"
-                    android:textStyle="bold"
-                    />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:paddingStart="5dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@color/black"
-                    android:textAlignment="viewStart"
-                    android:text="If your query remains unresolved for a period of 7 days after you’ve reached out to our Level 1 Customer support, you can escalate the matter to our Grievance Officer. You can contact our Grievance Officer - Mr. Himanshu at grievance-officer@pharmeasy.in  with the details of your interactions with our customer support team through Level 1. We will respond within 48 business hours from the date of receipt of your email. We assure you that we will strive to resolve your queries at the earliest and in any event, within the timelines prescribed under applicable laws."
-                    />
-
-            </LinearLayout>
-
-        </ScrollView>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Healme@email.com"
+            android:textSize="20sp"
+            android:textColor="#089BAB"/>
 
     </LinearLayout>
-
-
 
 </RelativeLayout>

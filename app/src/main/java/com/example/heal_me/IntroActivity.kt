@@ -83,6 +83,7 @@ class IntroActivity : AppCompatActivity() {
                 }
             }
         }
+
         textSkipIntro.setOnClickListener {
             Intent(applicationContext, LoginActivity::class.java).also {
                 startActivity(it)

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AccountEditFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_account_edit"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:backgroundTint="#089BAB"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Details"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginEnd="70dp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <DatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="calendar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_account_edit"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_full_name"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:backgroundTint="#EFF7F8"
+                android:hint="Enter Full Name"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/shield_done" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Full Name"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_gender_text"
+                android:editable="false"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:hint="Select Gender"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:id="@+id/account_edit_select_gender"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="10dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/arrow_short" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Gender"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_Date"
+                android:editable="false"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:hint="Select DOB"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:id="@+id/account_edit_select_date"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/calendar_filled" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Date Of Birth"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_height"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:singleLine="true"
+                android:hint="Enter Height"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/arrow_up_down" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Height"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_weight"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:singleLine="true"
+                android:hint="Enter Weight"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/weight" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Weight"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_email"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:singleLine="true"
+                android:hint="Enter Email"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/message_filled" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Email"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:editable="false"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/account_edit_address"
+                android:layout_width="245dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#EFF7F8"
+                android:hint="Enter Address"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:padding="13dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="false"
+                android:layout_marginTop="22dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/location" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="7dp"
+                android:background="#EFF7F8"
+                android:text="Address"
+                android:textAlignment="center"
+                android:textColor="#089BAB" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bu_account_edit_save_changes"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Save Changes"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/button"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
