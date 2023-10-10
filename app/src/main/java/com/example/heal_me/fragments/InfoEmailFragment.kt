@@ -45,12 +45,10 @@ class InfoEmailFragment : Fragment() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val button: ImageButton = binding.gender
-        val genderText = binding.genderText
         val genders = arrayOf("Male", "Female", "Other")
         var selected = -1
 
-        button.setOnClickListener {
+        binding.clSelectGender.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Select Gender")
             builder.setSingleChoiceItems(genders, selected) { _, which ->
@@ -58,7 +56,7 @@ class InfoEmailFragment : Fragment() {
             }
             builder.setPositiveButton("ok") { _, _ ->
                 if (selected != -1 && selected < genders.size) {
-                    genderText.setText(genders[selected])
+                    binding.genderText.setText(genders[selected])
                 } else {
                     Toast.makeText(requireContext(), "Please select Gender", Toast.LENGTH_SHORT).show()
                 }

@@ -41,31 +41,23 @@ class InfoNameFragment : Fragment() {
 
         sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
 
-
-        val button: ImageButton = binding.selectDateButton
-        button.setOnClickListener{
-            val datePicker = binding.datePicker
+        binding.clSelectDate.setOnClickListener {
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
-            val selectedDateEditText = binding.tvDate
 
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                     val selectedDate = "$dayOfMonth-${monthOfYear + 1}-$year"
-                    datePicker.visibility = View.VISIBLE
-                    selectedDateEditText.setText(selectedDate)
-                    datePicker.visibility = View.GONE
-
-                }, year, month, day
+                    binding.tvDate.setText(selectedDate)
+                },
+                year, month, day
             )
 
             datePickerDialog.show()
-
         }
-
 
         val conditionText = SpannableStringBuilder(binding.conditionText.text.toString())
         val fColor = ForegroundColorSpan(Color.rgb(8, 155, 171))

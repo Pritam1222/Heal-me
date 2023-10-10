@@ -1,8 +1,10 @@
 package com.example.heal_me
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.heal_me.databinding.HomeNavControlBinding
@@ -24,8 +26,10 @@ class HomeNavControl : AppCompatActivity() {
         sharedViewModel = ViewModelProvider(this).get(AppointmentSharedViewModel::class.java)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
         val navController = navHostFragment.navController
         navController.setGraph(R.navigation.nav_home_control_graph)
+
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setupWithNavController(navController)
 

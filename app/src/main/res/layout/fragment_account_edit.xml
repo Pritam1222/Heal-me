@@ -120,7 +120,6 @@
                 android:paddingLeft="5dp" />
 
             <ImageView
-                android:id="@+id/account_edit_select_gender"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:padding="10dp"
@@ -139,6 +138,12 @@
                 android:text="Gender"
                 android:textAlignment="center"
                 android:textColor="#089BAB" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_account_edit_select_gender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -166,7 +171,6 @@
                 android:paddingLeft="5dp" />
 
             <ImageView
-                android:id="@+id/account_edit_select_date"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:padding="13dp"
@@ -185,6 +189,11 @@
                 android:text="Date Of Birth"
                 android:textAlignment="center"
                 android:textColor="#089BAB" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_account_edit_select_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </RelativeLayout>
 
         <RelativeLayout

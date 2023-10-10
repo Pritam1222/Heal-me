@@ -41,7 +41,7 @@ class AccountEditFragment : Fragment() {
 
         sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
 
-        fragmentAccountEditBinding.accountEditSelectDate.setOnClickListener{
+        fragmentAccountEditBinding.clAccountEditSelectDate.setOnClickListener{
             val datePicker = fragmentAccountEditBinding.datePicker
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
@@ -66,7 +66,7 @@ class AccountEditFragment : Fragment() {
         val genders = arrayOf("Male", "Female", "Other")
         var selected = -1
 
-        fragmentAccountEditBinding.accountEditSelectGender.setOnClickListener {
+        fragmentAccountEditBinding.clAccountEditSelectGender.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Select Gender")
             builder.setSingleChoiceItems(genders, selected) { _, which ->

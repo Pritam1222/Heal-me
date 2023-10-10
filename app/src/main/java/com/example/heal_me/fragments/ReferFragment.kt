@@ -100,7 +100,6 @@ class ReferFragment : Fragment() {
 
         }
 
-
         fragmentReferBinding.telegramIcon.setOnClickListener{
             val telegramPackage = "org.telegram.messenger"
             val message = "Check out my awesome app: Heal-me - https://github.com/Pritam1222/Heal-me.git"
